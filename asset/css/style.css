@@ -80,3 +80,6 @@ form{
 .bg-skyblue{
     background-color: skyblue;
 }
+.bg-danger{
+    background-color: red;
+}
