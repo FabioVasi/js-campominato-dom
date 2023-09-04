@@ -24,6 +24,7 @@ Eventuali validazioni e i controlli possiamo farli anche in un secondo momento.
 Strumenti
 
 - alert
+- this
 - const/let
 - addEventListener
 - querrySelector
@@ -43,15 +44,45 @@ const formElement = document.querySelector('form');
 
 const fieldElement = document.querySelector('.field');
 
+
+
+
+
 formElement.addEventListener('submit', function(ev) {
 
-    ev.preventDefault()
+    ev.preventDefault();
 
     console.log(ev);
 
     fieldElement.innerHTML = ''
 
+    const difficult = document.getElementById('difficult').value;
+
+    console.log(difficult);
+
     let limit = 100;
+
+    if (difficult === 'Difficoltà 1') {
+
+        limit = 100;
+        
+    } else if(difficult === 'Difficoltà 2') {
+
+        limit = 81;
+
+    } else if(difficult === 'Difficoltà 3') {
+
+        limit = 49;
+
+    }
+
+    fieldOfBattle(limit, fieldElement);
+
+})
+
+
+
+function fieldOfBattle(limit, fieldElement) {
 
     for (let i = 0; i < limit; i++) {
         
@@ -60,19 +91,35 @@ formElement.addEventListener('submit', function(ev) {
         fieldElement.append(cellMarkupElement);
         
     }
+    
+}
 
-})
 
 
+function cellGenerator(numb, el, cssClass, limit) {
 
-function cellGenerator(numb, el, css_class, limit) {
+    console.log(this);
 
-    const cellMarkupElement = document.createElement(el)
+    const cellMarkupElement = document.createElement(el);
 
     cellMarkupElement.append(numb);
 
-    cellMarkupElement.classList.add(css_class);
+    cellMarkupElement.classList.add(cssClass);
 
     cellMarkupElement.style.width = `calc(100% / ${Math.sqrt(limit)})`
+
+    cellMarkupElement.addEventListener('click', function(ev) {
+
+        ev.preventDefault();
+
+        console.log(this);
+
+        this.classList.toggle('bg-skyblue');
+
+        console.log(this.innerText);
+        
+    })
+
+    return cellMarkupElement
     
 }
