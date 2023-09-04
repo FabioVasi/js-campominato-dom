@@ -50,9 +50,6 @@ const fieldElement = document.querySelector('.field');
 
 let bombs;
 
-let scores;
-
-
 // creo un addEventListener collegando un pulsante che una volta cliccato generi una griglia numerata
 formElement.addEventListener('submit', function(ev) {
 
@@ -83,9 +80,7 @@ formElement.addEventListener('submit', function(ev) {
     }
 
     bombs = generateBombs(limit);
-
-    scores = generateScores(limit);
-    
+  
     fieldOfBattle(limit, fieldElement);
 
 })
@@ -103,6 +98,7 @@ function fieldOfBattle(limit, fieldElement) {
     }
 
 }
+
 
 
 // creo una funzione che generi delle bombe all'interno del gioco
@@ -127,13 +123,6 @@ function generateBombs(limit) {
 }
 
 
-// creo una funzione che generi un alert in pagina con il punteggio dell'utente
-function generateScores() {
-
-    
-
-}
-
 
 // creo una funzione che generi le celle numerate in base alla difficoltà scelta, dentro le quali andranno 16 bombe distribuite casualmente dal computer (se cliccaate le bombe interrompono il gioco con un alert, altrimenti il gioco continua o finchè tutte le caselle libere saranno celesti o non si trova una bomba)
 function cellGenerator(numb, el, cssClass, limit) {
@@ -150,6 +139,8 @@ function cellGenerator(numb, el, cssClass, limit) {
 
     cellMarkupElement.addEventListener('click', function() {
 
+        console.log(scores);
+
         console.log(bombs);
 
         console.log(numb);
@@ -158,7 +149,11 @@ function cellGenerator(numb, el, cssClass, limit) {
 // se la casella cliccata contiene una bomba l'utente perde la partita
             this.classList.add('bg-danger');
 
-            alert('You lost, refresh the page for another game, your score is ' +  + ' point')
+            const result = document.getElementById('score');
+
+            console.log(result)
+
+            result.innerHTML = 'Ops! hai calpestato una bomba, GAME OVER, il tuo punteggio è ' +  + ' punti, avvia una nuova partita';
 
         } else {
 // se la casella cliccata è libera l'utente contua il gioco
