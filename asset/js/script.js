@@ -86,6 +86,7 @@ formElement.addEventListener('submit', function(ev) {
 })
 
 
+
 // creo una funzione per generare il campo di battaglia
 function fieldOfBattle(limit, fieldElement) {
 
@@ -127,6 +128,8 @@ function generateBombs(limit) {
 // creo una funzione che generi le celle numerate in base alla difficoltà scelta, dentro le quali andranno 16 bombe distribuite casualmente dal computer (se cliccaate le bombe interrompono il gioco con un alert, altrimenti il gioco continua o finchè tutte le caselle libere saranno celesti o non si trova una bomba)
 function cellGenerator(numb, el, cssClass, limit) {
 
+    let scores = 0;
+
     console.log(this);
 
     const cellMarkupElement = document.createElement(el);
@@ -138,6 +141,8 @@ function cellGenerator(numb, el, cssClass, limit) {
     cellMarkupElement.style.width = `calc(100% / ${Math.sqrt(limit)})`
 
     cellMarkupElement.addEventListener('click', function() {
+
+        scores += 1;
 
         console.log(scores);
 
@@ -151,9 +156,9 @@ function cellGenerator(numb, el, cssClass, limit) {
 
             const result = document.getElementById('score');
 
-            console.log(result)
+            console.log(result);
 
-            result.innerHTML = 'Ops! hai calpestato una bomba, GAME OVER, il tuo punteggio è ' +  + ' punti, avvia una nuova partita';
+            result.innerHTML = 'Ops! hai calpestato una bomba, GAME OVER, il tuo punteggio è ' + scores + ' punti, avvia una nuova partita';
 
         } else {
 // se la casella cliccata è libera l'utente contua il gioco
