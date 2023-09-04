@@ -3,3 +3,73 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: black;
+}
+form{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    width: 1000px;
+    margin: 100px auto;
+    text-align: center;
+}
+#generate{
+    border: 2px solid white;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: rgb(20, 20, 200);
+    margin-right: 1rem;
+}
+#generate:hover{
+    background-color: rgb(10, 10, 100);
+    border: 2px solid red;
+}
+#difficult{
+    width: 120px;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    border: 2px solid yellow;
+    color: white;
+    background-color: black;
+}
+#reset{
+    border: 2px solid white;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: rgb(200, 20, 20);
+    margin-left: 1rem;
+}
+#reset:hover{
+    background-color: rgb(100, 10, 10);
+    border: 2px solid blue;
+}
+.cell{
+    width: calc(100% / 10);
+    border: 2px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 1rem;
+}
+.bg-skyblue{
+    background-color: skyblue;
+}
