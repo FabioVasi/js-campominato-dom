@@ -21,7 +21,7 @@ difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 cas
 Consigli del giorno:
 
 Scriviamo prima cosa vogliamo fare passo passo in italiano, dividiamo il lavoro in micro problemi.
-pensiamo a queli strumenti ci servono, ad esempio: Di cosa ho bisogno per generare i numeri?
+pensiamo a quali strumenti ci servono, ad esempio: Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Eventuali validazioni e i controlli possiamo farli anche in un secondo momento.
 
@@ -47,8 +47,6 @@ Strumenti
 const formElement = document.querySelector('form');
 
 const fieldElement = document.querySelector('.field');
-
-
 
 formElement.addEventListener('submit', function(ev) {
 
@@ -93,12 +91,24 @@ function fieldOfBattle(limit, fieldElement) {
         fieldElement.append(cellMarkupElement);
         
     }
+
+    const bombs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+
+    console.log(bombs);
+
+    for (let i = 0; i < 16; i++) {
+
+        const cellBombElement =  Math.floor(Math.random() * limit) + 1;
+
+        console.log(cellBombElement);
+        
+    }
     
 }
 
 
 
-function cellGenerator(numb, el, cssClass, limit, bombs) {
+function cellGenerator(numb, el, cssClass, limit) {
 
     console.log(this);
 
@@ -123,19 +133,5 @@ function cellGenerator(numb, el, cssClass, limit, bombs) {
     })
 
     return cellMarkupElement
-    
-}
-
-
-
-const bombs = ['BOOM! 1', 'BOOM! 2', 'BOOM! 3', 'BOOM! 4', 'BOOM! 5', 'BOOM! 6', 'BOOM! 7', 'BOOM! 8', 'BOOM! 9', 'BOOM! 10', 'BOOM! 11', 'BOOM! 12', 'BOOM! 13', 'BOOM! 14', 'BOOM! 15', 'BOOM! 16']
-
-console.log(bombs);
-
-for (let i = 0; i < 16; i++) {
-
-    const cellBombElement = Math.random().toFixed(0) * limit;
-
-    console.log(cellBombElement);
     
 }
