@@ -110,18 +110,6 @@ function cellGenerator(numb, el, cssClass, limit, bombs) {
 
     cellMarkupElement.style.width = `calc(100% / ${Math.sqrt(limit)})`
 
-    const bombs = ['BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!']
-
-    console.log(bombs);
-
-    for (let i = 0; i < 16; i++) {
-
-        const cellBomb = Math.random().toFixed(0) * limit + 1;
-
-        console.log(cellBomb);
-        
-    }
-
     cellMarkupElement.addEventListener('click', function(ev) {
 
         ev.preventDefault();
@@ -140,3 +128,14 @@ function cellGenerator(numb, el, cssClass, limit, bombs) {
 
 
 
+const bombs = ['BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!']
+
+console.log(bombs);
+
+for (let i = 0; i < 16; i++) {
+
+    const cellBomb = Math.random().toFixed(0) * limit + 1;
+
+    console.log(cellBomb);
+    
+}
