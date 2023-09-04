@@ -128,14 +128,14 @@ function cellGenerator(numb, el, cssClass, limit, bombs) {
 
 
 
-const bombs = ['BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!', 'BOOM!']
+const bombs = ['BOOM! 1', 'BOOM! 2', 'BOOM! 3', 'BOOM! 4', 'BOOM! 5', 'BOOM! 6', 'BOOM! 7', 'BOOM! 8', 'BOOM! 9', 'BOOM! 10', 'BOOM! 11', 'BOOM! 12', 'BOOM! 13', 'BOOM! 14', 'BOOM! 15', 'BOOM! 16']
 
 console.log(bombs);
 
 for (let i = 0; i < 16; i++) {
 
-    const cellBomb = Math.random().toFixed(0) * limit + 1;
+    const cellBombElement = Math.random().toFixed(0) * limit;
 
-    console.log(cellBomb);
+    console.log(cellBombElement);
     
 }
