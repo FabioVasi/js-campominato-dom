@@ -48,6 +48,8 @@ const formElement = document.querySelector('form');
 
 const fieldElement = document.querySelector('.field');
 
+let bombs;
+
 formElement.addEventListener('submit', function(ev) {
 
     ev.preventDefault();
@@ -76,6 +78,8 @@ formElement.addEventListener('submit', function(ev) {
 
     }
 
+    bombs = generateBombs(limit);
+    
     fieldOfBattle(limit, fieldElement);
 
 })
@@ -92,18 +96,28 @@ function fieldOfBattle(limit, fieldElement) {
         
     }
 
-    const bombs = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+}
 
-    console.log(bombs);
 
-    for (let i = 0; i < 16; i++) {
 
-        const cellBombElement =  Math.floor(Math.random() * limit) + 1;
+function generateBombs(limit) {
 
-        console.log(cellBombElement);
-        
+    let cellBombNumbers = [];
+
+    while (cellBombNumbers.length < 16) {
+
+        const cellBombNumber = Math.floor(Math.random() * limit) + 1;
+
+        if ( ! cellBombNumbers.includes(cellBombNumber)) {
+            
+            cellBombNumbers.push(cellBombNumber);
+
+        }
+
     }
-    
+
+    return cellBombNumbers;
+
 }
 
 
@@ -120,15 +134,25 @@ function cellGenerator(numb, el, cssClass, limit) {
 
     cellMarkupElement.style.width = `calc(100% / ${Math.sqrt(limit)})`
 
-    cellMarkupElement.addEventListener('click', function(ev) {
+    cellMarkupElement.addEventListener('click', function() {
 
-        ev.preventDefault();
+        console.log(bombs);
 
-        console.log(this);
+        console.log(numb);
 
-        this.classList.toggle('bg-skyblue');
+        if(bombs.includes(numb)) {
 
-        console.log(this.innerText);
+            this.classList.add('bg-danger');
+
+            alert('You lost, refresh the page')
+
+        } else {
+
+            this.classList.toggle('bg-skyblue');
+
+            console.log(numb);
+
+        }
         
     })
 
