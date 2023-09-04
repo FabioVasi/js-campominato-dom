@@ -50,6 +50,10 @@ const fieldElement = document.querySelector('.field');
 
 let bombs;
 
+let scores;
+
+
+// creo un addEventListener collegando un pulsante che una volta cliccato generi una griglia numerata
 formElement.addEventListener('submit', function(ev) {
 
     ev.preventDefault();
@@ -61,7 +65,7 @@ formElement.addEventListener('submit', function(ev) {
     const difficult = document.getElementById('difficult').value;
 
     console.log(difficult);
-
+// creo numero massimo di celle da creare che vari a seconda della difficoltà scelta dall'utente
     let limit = 100;
 
     if (difficult == 'Difficoltà 1') {
@@ -79,13 +83,15 @@ formElement.addEventListener('submit', function(ev) {
     }
 
     bombs = generateBombs(limit);
+
+    scores = generateScores(limit);
     
     fieldOfBattle(limit, fieldElement);
 
 })
 
 
-
+// creo una funzione per generare il campo di battaglia
 function fieldOfBattle(limit, fieldElement) {
 
     for (let i = 0; i < limit; i++) {
@@ -99,7 +105,7 @@ function fieldOfBattle(limit, fieldElement) {
 }
 
 
-
+// creo una funzione che generi delle bombe all'interno del gioco
 function generateBombs(limit) {
 
     let cellBombNumbers = [];
@@ -121,7 +127,15 @@ function generateBombs(limit) {
 }
 
 
+// creo una funzione che generi un alert in pagina con il punteggio dell'utente
+function generateScores(limit) {
 
+
+
+}
+
+
+// creo una funzione che generi le celle numerate in base alla difficoltà scelta, dentro le quali andranno 16 bombe distribuite casualmente dal computer (se cliccaate le bombe interrompono il gioco con un alert, altrimenti il gioco continua o finchè tutte le caselle libere saranno celesti o non si trova una bomba)
 function cellGenerator(numb, el, cssClass, limit) {
 
     console.log(this);
@@ -141,13 +155,13 @@ function cellGenerator(numb, el, cssClass, limit) {
         console.log(numb);
 
         if(bombs.includes(numb)) {
-
+// se la casella cliccata contiene una bomba l'utente perde la partita
             this.classList.add('bg-danger');
 
-            alert('You lost, refresh the page')
+            alert('You lost, refresh the page for another game, your score is ' +  + ' point')
 
         } else {
-
+// se la casella cliccata è libera l'utente contua il gioco
             this.classList.toggle('bg-skyblue');
 
             console.log(numb);
