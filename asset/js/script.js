@@ -20,4 +20,59 @@ Scriviamo prima cosa vogliamo fare passo passo in italiano, dividiamo il lavoro 
 pensiamo a queli strumenti ci servono, ad esempio: Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Eventuali validazioni e i controlli possiamo farli anche in un secondo momento.
+
+Strumenti
+
+- alert
+- const/let
+- addEventListener
+- querrySelector
+- console.log
+- fot/while
+- function/arrow function
+- append
+- createElement
+- array
+- classList
+- style
 */
+
+
+
+const formElement = document.querySelector('form');
+
+const fieldElement = document.querySelector('.field');
+
+formElement.addEventListener('submit', function(ev) {
+
+    ev.preventDefault()
+
+    console.log(ev);
+
+    fieldElement.innerHTML = ''
+
+    let limit = 100;
+
+    for (let i = 0; i < limit; i++) {
+        
+        const cellMarkupElement = cellGenerator(i + 1, 'div', 'cell', limit)
+
+        fieldElement.append(cellMarkupElement);
+        
+    }
+
+})
+
+
+
+function cellGenerator(numb, el, css_class, limit) {
+
+    const cellMarkupElement = document.createElement(el)
+
+    cellMarkupElement.append(numb);
+
+    cellMarkupElement.classList.add(css_class);
+
+    cellMarkupElement.style.width = `calc(100% / ${Math.sqrt(limit)})`
+    
+}

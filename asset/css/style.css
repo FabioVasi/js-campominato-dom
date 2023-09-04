@@ -58,8 +58,14 @@ form{
     background-color: rgb(100, 10, 10);
     border: 2px solid blue;
 }
+.field{
+    display: flex;
+    flex-wrap: wrap;
+}
 .cell{
-    width: calc(100% / 10);
+    display: flex;
+	align-items: center;
+	justify-content: center;
     border: 2px solid green;
     display: flex;
     justify-content: center;
