@@ -33,7 +33,7 @@ Strumenti
 - addEventListener
 - querrySelector
 - console.log
-- fot/while
+- for/while
 - function/arrow function
 - append
 - createElement
@@ -43,9 +43,9 @@ Strumenti
 */
 
 
-
+// creo una costante che mi selezioni il form dall'HTML
 const formElement = document.querySelector('form');
-
+// creo una costante che mi selezioni un elemento dall'HTML da usare come base per il campo di battaglia
 const fieldElement = document.querySelector('.field');
 
 let bombs;
@@ -61,21 +61,21 @@ formElement.addEventListener('submit', function(ev) {
     console.log(ev);
 
     fieldElement.innerHTML = ''
-
+// creo una costante che mi permetta di intercettare la difficoltà di gioco scelta dall'utente
     const difficult = document.getElementById('difficult').value;
 
     console.log(difficult);
-// creo numero massimo di celle da creare che vari a seconda della difficoltà scelta dall'utente
+// creo una variabile con numero massimo di celle da creare che vari a seconda della difficoltà scelta dall'utente
     let limit = 100;
-
+// difficoltà 1 impostata di default con limite = 100 celle e 16 bombe
     if (difficult == 'Difficoltà 1') {
 
         limit = 100;
-        
+// difficoltà 2 con limite = 81 celle e 16 bombe        
     } else if(difficult == 'Difficoltà 2') {
 
         limit = 81;
-
+// difficoltà 3 con limite = 49 celle e 16 bombe
     } else if(difficult == 'Difficoltà 3') {
 
         limit = 49;
@@ -128,9 +128,9 @@ function generateBombs(limit) {
 
 
 // creo una funzione che generi un alert in pagina con il punteggio dell'utente
-function generateScores(limit) {
+function generateScores() {
 
-
+    
 
 }
 
