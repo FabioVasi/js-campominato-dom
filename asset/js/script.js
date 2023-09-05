@@ -58,21 +58,21 @@ formElement.addEventListener('submit', function(ev) {
     console.log(ev);
 
     fieldElement.innerHTML = ''
-// creo una costante che mi permetta di intercettare la difficoltà di gioco scelta dall'utente
+    // creo una costante che mi permetta di intercettare la difficoltà di gioco scelta dall'utente
     const difficult = document.getElementById('difficult').value;
 
     console.log(difficult);
-// creo una variabile con numero massimo di celle da creare che vari a seconda della difficoltà scelta dall'utente
+    // creo una variabile con numero massimo di celle da creare che vari a seconda della difficoltà scelta dall'utente
     let limit = 100;
-// difficoltà 1 impostata di default con limite = 100 celle e 16 bombe
+    // difficoltà 1 impostata di default con limite = 100 celle e 16 bombe
     if (difficult == 'Difficoltà 1') {
 
         limit = 100;
-// difficoltà 2 con limite = 81 celle e 16 bombe        
+    // difficoltà 2 con limite = 81 celle e 16 bombe        
     } else if(difficult == 'Difficoltà 2') {
 
         limit = 81;
-// difficoltà 3 con limite = 49 celle e 16 bombe
+    // difficoltà 3 con limite = 49 celle e 16 bombe
     } else if(difficult == 'Difficoltà 3') {
 
         limit = 49;
@@ -151,17 +151,21 @@ function cellGenerator(numb, el, cssClass, limit) {
         console.log(numb);
 
         if(bombs.includes(numb)) {
-// se la casella cliccata contiene una bomba l'utente perde la partita
+        // se la casella cliccata contiene una bomba l'utente perde la partita
             this.classList.add('bg-danger');
 
             const result = document.getElementById('score');
 
             console.log(result);
 
-            result.innerHTML = 'Ops! hai calpestato una bomba, GAME OVER, il tuo punteggio è ' + scores + ' punti, avvia una nuova partita';
+            result.innerHTML = 'Ops! hai calpestato una bomba, GAME OVER, il tuo punteggio è di ' + scores + ' punti, avvia una nuova partita';
+
+        } else if(scores == (limit-bombs)) {
+
+            result.innerHTML = 'Hai vinto'
 
         } else {
-// se la casella cliccata è libera l'utente contua il gioco
+        // se la casella cliccata è libera l'utente contua il gioco
             this.classList.toggle('bg-skyblue');
 
             console.log(numb);
